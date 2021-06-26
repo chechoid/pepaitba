@@ -84,14 +84,16 @@ edad <- anio_actual - anio_nacimiento
 edad
 ```
 
-Para este tutorial vamos a utilizar el dataset de la **Encuesta KIWI de Sueldos LATAM** 🥝 que están almacenados en un objeto .`RDS` que es una extensión propia de R para almacenar datos y que mantiene las características de los datos. También hay una versión `.csv` en el [repositorio de esta clase](https://github.com/chechoid/dpa-itba/tree/main/PEPA).
+
+## Explorando los datos
+
+Para este tutorial vamos a utilizar el dataset de la **Encuesta KIWI de Sueldos LATAM** 🥝 que están almacenados en un objeto .`RDS` que es una extensión propia de R para almacenar datos y que mantiene las características de los datos. También hay una versión `.csv` en el [repositorio de esta clase](https://github.com/chechoid/dpa-itba/tree/main/PEPA). La versión completa del Dataset se puede descargar de [Kaggle](https://www.kaggle.com/sergiogarciamora/encuesta-de-sueldos-de-rrhh-latam).
 
 ```{r carga-datos, echo=TRUE, eval=FALSE}
 # Cargamos los datos
 kiwi_ar <- readRDS("kiwi_ar.RDS")
 ```
 
-## Explorando los datos
 
 ```{r carga-datos2}
 # library(readr)
