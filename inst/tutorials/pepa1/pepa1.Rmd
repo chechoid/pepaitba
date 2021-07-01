@@ -287,7 +287,7 @@ plot(kiwi_ar$puesto)
 Si usamos la misma función con una variable numérica vamos a obtener un gráfico diferente.
 
 ```{r catev-2, exercise=TRUE}
-# Realizar un gráfico de cantidad de personas a cargo
+# Realizar un gráfico de la variable sueldo_bruto
 plot(kiwi_ar$sueldo_bruto)
 ```
 
@@ -351,7 +351,7 @@ Este sería un gráfico apilado al 100%
 ```{r categ-5}
 # Preparación de los datos
 puestos <- kiwi_ar %>% 
-  select(puesto) %>%    # Seleccionamos la columna tipo universidad
+  select(puesto) %>%    # Seleccionamos la columna 'puesto'
   group_by(puesto) %>%  # Agrupamos los resultados
   summarise (n = n()) %>%         # Contamos la cantidad de casos para cada grupo
   mutate(freq = n/sum(n)) %>%     # Creamos una columna nueva calculando la frecuencia relativa

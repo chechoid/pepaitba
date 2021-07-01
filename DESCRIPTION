@@ -1,16 +1,17 @@
 Package: pepaitba
 Title: "Tutoriales de Estadística Diplomatura de People Analytics"
-Version: 0.0.0.9000
-Authors@R: 
-    person(given = "First",
-           family = "Last",
-           role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
+Version: 0.0.1
+Authors@R: c(person("Sergio", "Garcia Mora", role = c("aut", "cre"), email = "sergio@d4hr.com"),
+           person("Arturo", "De Zan", role = "aut", email = "adezan@itba.edu.ar"))
 Description: "Tutoriales Interactivos de las Clases de Pensamiento Estadístico en People Analytics"
 License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
     license
 Encoding: UTF-8
+Imports:
+    funModeling,
+    tidyverse,
+    summarytools,
+    scales
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
