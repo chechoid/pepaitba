@@ -42,6 +42,9 @@ Por problemas en el uso de los paquetes, errores en las clases, e inconvenientes
 
 [Arturo De Zan](https://www.linkedin.com/in/arturodezan/) (adezan\@itba.edu.ar)
 
+## Algunas aclaraciones pertinentes
+El tono, memes y humor que aplicamos en este paquete de tutoriales está pensado para un grupo de alumnos con el que compartimos una relación, ciertos códigos y chistes en un determinado espacio y tiempo particular. De todas maneras, si algo de lo que publicamos te parece ofensivo por favor escribinos así lo podemos corregir.
+
 ## Agradecimientos y créditos
 
 Muchas gracias a [Yanina Bellini Saibene](https://twitter.com/yabellini) :raised_hands:por la ayuda para resolver problemas en el desarrollo de este paquete y en el armado de los tutoriales.
