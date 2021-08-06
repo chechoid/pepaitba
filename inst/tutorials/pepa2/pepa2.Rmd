@@ -6,69 +6,71 @@ runtime: shiny_prerendered
 
 ```{r setup, include=FALSE}
 library(learnr)
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 ```
 
+## Pensamiento Estadístico en People Analytics: Regresiones Lineales
 
-## Topic 1
+Los análisis de regresión son un tipo de análisis que permiten descubrir la relación entre dos o más variables, y estimar su resultado a futuro. En particular, las regresiones lineales por su simplicidad, hace que sea fácil entender conceptualmente de qué se trata y comprender sus resultados. De hecho, [Walter Sosa Escudero](https://www.linkedin.com/in/walter-sosa-escudero-a23454110/) en su libro [Big Data: breve manual para conocer la ciencia de datos que ya invadió nuestras vidas](https://sigloxxieditores.com.ar/libro/big-data/) llama a las regresiones lineales ["los Rolling Stones del análisis de datos"](https://docs.google.com/document/d/1Q-SjKOaZnQwHW_OixsFM80-KDSydwWlTv49ZCPVfEYY/edit?usp=sharing).
 
-### Exercise 
+La **regresión lineal** es uno de los algoritmos más elementales para predecir **valores**. Hay muchos tipos de regresiones que abordan distintos tipos de problemáticas (por ejemplo la regresión logística estima probabilidades). Pero la regresión lineal lo que permite hacer es estimar el valor de una variable en función de las relaciones entre las variables.
 
-*Here's a simple exercise with an empty code chunk provided for entering the answer.*
+Una de las cosas que tenemos que tener bien en claro con las regresiones lineales es que el resultado va a ser un **número**. Por ejemplo:
 
-Write the R code required to add two plus two:
+-   El gasto promedio *en función* de los ingresos.
+-   El sueldo *en función* de los años de experiencia.
 
-```{r two-plus-two, exercise=TRUE}
+Una obviedad: La regresión lineal se representa con una línea que atraviesa los puntos, que como cuenta Walter Sosa Escudero, tiene la característica de ser una recta que pasa lo más cerca posible de todos los datos.
+
+![](correlation_metal.jpg){width="653"}
+
+## Aplicaciones en RRHH
+
+Un par de ejemplos de aplicaciones en el ámbito de Recursos Humanos son los siguientes.
+
+Cuando Telecom se fusionó con Cablevisión, el equipo de People Analytics tenía que ayudar a decidir qué beneficios de Telecom iban a mantener.
+
+En Cablevisión habían realizado un análisis en el que descubrieron que mientras más se utilizaba un beneficio, mejor era su valoración. En la nueva empresa, no había información sobre la valoración de los beneficios pero si había información sobre la utilización de los beneficios.
+
+![](reg_telecom.png){width="561"}
+
+Para conocer el caso completo pueden ver la presentación en [YouTube](https://youtu.be/8bhFliOvFPY).
+
+Otro caso interesante fue el que desarrollaron los alumnos de AGD en su TIF del 2020. Querían averiguar si había una relación entre la rentabilidad de la planta, y la realización de horas extras.
+
+Descubrieron que hay una relación negativa entre la cantidad de horas totales trabajadas y la productividad de la planta. Este descubrimiento les permitió trabajar sobre lo que podían gestionar que son las horas extras.
+
+![](reg_agd.png){width="476"}
+
+Antes de meternos con cómo realizar regresiones lineales vamos a hacer un repaso sobre algunos temas de estadística descriptiva para ir fijando conocimiento.
+
+## Repaso: promedio
+
+Usemos este pequeño dataset.
+
+```{r edad, echo=TRUE}
+library(readr)
+
+edades <- read_delim("https://raw.githubusercontent.com/chechoid/pepaitba/main/inst/tutorials/pepa1/edades.csv",
+                     delim = ",")
+
+# Veamos los datos
+edades
+```
+
+Calculemos el promedio de la variable `Edad`.
+
+```{r, avg1, exercise=TRUE, exercise.setup="edad"}
+mean(edades$___)
 
 ```
 
-### Exercise with Code
-
-*Here's an exercise with some prepopulated code as well as `exercise.lines = 5` to provide a bit more initial room to work.*
-
-Now write a function that adds any two numbers and then call it:
-
-```{r add-function, exercise=TRUE, exercise.lines = 5}
-add <- function() {
-  
-}
+```{r avg1-hint}
+# Coloca el nombre de la columna Edad
 ```
 
-## Topic 2
-
-### Exercise with Hint
-
-*Here's an exercise where the chunk is pre-evaulated via the `exercise.eval` option (so the user can see the default output we'd like them to customize). We also add a "hint" to the correct solution via the chunk immediate below labeled `print-limit-hint`.*
-
-Modify the following code to limit the number of rows printed to 5:
-
-```{r print-limit, exercise=TRUE, exercise.eval=TRUE}
-mtcars
+```{r avg1-solution}
+mean(edades$Edad)
 ```
 
-```{r print-limit-hint}
-head(mtcars)
-```
-
-### Quiz
-
-*You can include any number of single or multiple choice questions as a quiz. Use the `question` function to define a question and the `quiz` function for grouping multiple questions together.*
-
-Some questions to verify that you understand the purposes of various base and recommended R packages:
-
-```{r quiz}
-quiz(
-  question("Which package contains functions for installing other R packages?",
-    answer("base"),
-    answer("tools"),
-    answer("utils", correct = TRUE),
-    answer("codetools")
-  ),
-  question("Which of the R packages listed below are used to create plots?",
-    answer("lattice", correct = TRUE),
-    answer("tools"),
-    answer("stats"),
-    answer("grid", correct = TRUE)
-  )
-)
-```
+El promedio se dice que es una medida de **tendencia** **central**, en términos coloquiales esto quiere decir que el promedio es una medida que puede ser el valor más representativo de una variable.
